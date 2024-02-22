@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <form action="/blog/create" method="" enctype="text/plain">
+      <table>  
+        <input type="hidden" name="gizli" value="gizli bilgi sayfada görünmez ama post edilir">
+        <tr>
+            <td><label for="name">Name:</label></td>
+            <td><input type="text" id="name" name="namesurname" value="Name input"></td>
+        </tr>
+        <tr>
+            <td><label for="email">Email:</label></td>
+            <td><input type="email" name="email"></td>
+        </tr> 
+        <tr>
+            <td><label for="password">Password:</label></td>
+            <td><input type="password" name="password"></td>
+        </tr>
+        <tr>
+            <td><label for="date">Date:</label></td>
+            <td><input type="date" name="date"></td>
+        </tr>
+        <tr>
+            <td><label for="gender">Cinsiyet:</label></td>
+            <td>
+                Erkek<input type="radio" name="gender" value="male">
+                Kadın<input type="radio" name="gender" value="female">
+                Diğer<input type="radio" name="gender" value="other">    
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Hobies
+            </td>
+            <td><!--Value verilirse post edilirken value gönderilir. Aksi taktirde on off durumu gönderilir-->
+                <!--name="section[]" kullanılırsa aynı isim altında bütün checkedbox'ın bilgisi dizi olarak post edilir.-->
+                <label><input type="checkbox" name="section[]" value="1" />Yüzme</label>
+                <label><input type="checkbox" name="section[]" value="2" />Futbol</label>
+                <label><input type="checkbox" name="section[]" value="3" />Sinema</label>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                Durum
+            </td>
+            <td>                                    <!--checked yazılırsa seçili gelir-->
+                <label><input type="checkbox" name="home" checked/>is Home</label>
+                <label><input type="checkbox" name="active"/>is Active</label>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                Eğitim Durumu:
+            </td>
+            <td>
+                <select name="ogrdurum">
+                    <option value="Lise">Lise</option>
+                    <option value="Onlisans">Ön Lisans</option>
+                    <option value="Lisans" selected>Lisans</option>
+                    <option value="YLisans">Yüksek Lisans</option>
+                    <option value="Doktora">Doktora</option>
+                </select>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                Açıklama:
+            </td>
+            <td>
+                <textarea name="aciklama" rows="10" cols="30" placeholder="Açıklama girin"></textarea>
+            </td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td><br><button type="submit">Gönder</button>
+                <button type="reset">Sıfırla</button>
+            </td>
+        </tr>
+        
+    </table>
+    </form>
+<br><br>
+    
+<form>
+     <div style="width: 400px;">
+        <fieldset>
+            <legend>Kimlik Bilgileri</legend>
+            <label for="Adı ve Soyadı" id="ad">Adı ve Soyadı</label><br>
+            <input type="text" name="adisoyadi" id="ad"><br>
+
+            <label for="tc" id="tc">TC Numarası</label><br>
+            <input type="text" name="tc" id="tc"><br>
+        </fieldset>
+    </div>
+    </form>
+
+
+    <form oninput="x.value=parseInt(yas.value); ">
+        <div style="width: 400px;">
+           <fieldset>
+               <legend>Yaş Bilgileri</legend>               
+              
+               <label for="y" id="y">Yaşınız</label><br>
+               0<input type="range" name="yas" id="y" value="50" max="200">200
+               =
+               <output name="x" for="yas" ></output><br>
+               
+               <label for="y1" id="y">Yaşınız</label><br>
+               <input type="number" name="yas1" id="y1" value="50" max="200">
+           </fieldset>
+       </div>
+       </form>
+
+       <br><br>
+       
+       <form>
+        <label for="myfile">Select a file:</label>
+        <input type="file" id="myfile" name="myfile"><br><br>
+        <input type="submit" value="Submit">
+      </form>
+
+</body>
+</html>
