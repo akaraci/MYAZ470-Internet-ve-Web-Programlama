@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/head') %>
+    <body>
+        <div class="d-flex" id="wrapper">
+          
+            <!-- Page content wrapper-->
+            <div id="page-content-wrapper">
+                <!-- Top navigation-->
+                <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+                    <div class="container-fluid">
+                        <!-- <button class="btn btn-primary" id="sidebarToggle">Toggle Menu</button> --> 
+                    </div>
+                </nav>
+                <!-- Page content-->
+            <div class="container-fluid">
+                    <h1 class="mt-4"><%= contentTitle %></h1>    
+                    <div class="row"> <!--her row 12 col'dır.-->
+                        <div class="col-md-6 mt-3 bg-success pt-4 text-info"><!--3 col solda-->
+                            
+                    <form action="" method="post">                      
+                        <div class="row mb-3">
+                            <label for="email" class="col-sm-2 col-form-label">Email</label>
+                            <div class="col-sm-8">
+                                <input name="email" type="email" class="form-control" value="<%=authinfo.email %>">
+                            </div>
+                        </div>
+        
+                        <div class="row mb-3">
+                            <label for="password" class="col-sm-2 col-form-label">Password</label>
+                            <div class="col-sm-8">
+                                <input name="password" type="password" class="form-control" value="<%=authinfo.password %>">
+                            </div>
+                        </div>
+                        <div class="mb-3  form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1" value="1"  
+                        name="cbhatirla"> 
+                        <label class="form-check-label" for="exampleCheck1">Beni hatırla</label>
+                    </div>
+                        <div class="row mb-3">
+                            <div class="col-sm-8 offset-sm-2">
+                                <button type="submit" class="btn btn-primary" id="btnkaydet">Oturum Aç</button>
+                                <a href="reset-password" class="btn btn-danger ">Parolayı Sıfırla</a>
+                                <!--"/acount/reset-password" şeklinde de verilebilir.--> 
+                            </div>        
+                        </div>           
+                    </form>
+                </div>
+            </div>
+            </div>
+            </div>
+           
+        </div>
+    <%- include('../partials/script') %>
+    </body>
+</html>
