@@ -1,0 +1,15 @@
+const mysql=require("mysql2"); //npm i mysql2
+let db = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: '970300',
+    database: 'anouncment'
+  });
+
+//mysql connection
+db.connect((err)=>{
+  if (err) return console.log(err);
+  console.log("connected to myssql database");
+})
+
+  module.exports=db.promise();
