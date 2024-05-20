@@ -1,0 +1,27 @@
+const {DataTypes}=require("sequelize"); 
+const db=require("../data/db");
+const Anc=db.define("anc",{ //anc table name'dir. //db'de table tanımla
+    // noticeid:{ //İsterseniz silebilirsiniz. otomatik oluşturulur. id şeklinde
+    //     type: DataTypes.INTEGER,
+    //     autoIncrement: true,
+    //     allowNull: false,
+    //     primaryKey: true,
+    // },
+    title:{
+        type: DataTypes.STRING,
+        allowNull:false
+    },
+    exp:{
+        type: DataTypes.TEXT,
+        allowNull:false
+    },
+    isactive:{
+        type: DataTypes.BOOLEAN,
+        defaultValue: false
+    }
+},//tabloya createdAt ve updatedAt olmak üzere 2 otomatik field ekler.
+ //Bu alnaların otomatik eklenmesini istemiyorsanız aşağıdaki özelliği eklemelisiniz.
+{timestamps:true}
+);
+
+module.exports = Anc;
