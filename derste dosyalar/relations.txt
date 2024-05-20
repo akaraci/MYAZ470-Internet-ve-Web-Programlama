@@ -1,0 +1,25 @@
+//relations
+//İlişkiler
+Users.hasMany(Anc,{
+    foreignKey:{
+        allowNull:false,
+        defaultValue:1
+    },
+    
+    onDelete:"RESTRICT",//"SET NULL", //"RESTRICT", //Default değer->"CASCADE" "RESTRICT" yapılırsa kategoriye bağlı blog olduğunda hata verir. Sildirmez.
+    onUpdate:"RESTRICT"
+}
+);
+
+Anc.belongsTo(Users);
+
+userCategory.hasMany(Users,
+    { foreignKey:{
+                    allowNull:false,
+                    defaultValue:1
+                 },
+    onDelete:"RESTRICT",//"SET NULL", //"RESTRICT", //Default değer->"CASCADE" "RESTRICT" yapılırsa kategoriye bağlı blog olduğunda hata verir. Sildirmez.
+    onUpdate:"RESTRICT"
+}
+);
+Users.belongsTo(userCategory);
