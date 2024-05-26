@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/head') %>
+    <body>
+        <div class="d-flex" id="wrapper">
+            <!-- Sidebar-->
+            <%- include('../partials/Sidebar') %>
+            <!-- Page content wrapper-->
+            <div id="page-content-wrapper">
+                <!-- Top navigation-->
+                <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+                    <div class="container-fluid">
+                        <button class="btn btn-primary" id="sidebarToggle">Toggle Menu</button>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                        <%- include('../partials/right-top-menu') %>
+                    </div>
+                </nav>
+                <!-- Page content-->
+                <div class="container-fluid">
+                    <h1 class="mt-4"><%= contentTitle %></h1>
+                    <table class="table table-striped table-hover table-responsive">
+                        <thead>
+                          <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">User ID</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Surname</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Password</th>
+                            <th scope="col">Kategori</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <% data.forEach((element,index) => { %>
+                            <tr>
+                              <th scope="row"><%= index+1 %></th>
+                              <td><%=element.userid%></td>
+                              <td><%=element.name%></td>
+                              <td><%=element.surname %></td>
+                              <td><%=element.email %></td>
+                              <td style="word-break:break-all;"><%=element.password %></td>
+                              <td><%=element.usercategory.categoryname %></td>
+                              <td class="text-end text-nowrap">
+                                  <a href="/admin/edit/user/<%=element.id %>" class="btn btn-primary">Edit</a>
+                                  <a href="/admin/delete/user/<%=element.id %>" class="delete-btn btn btn-danger" data-id="<%=element.id %>" data-title="<%=element.name %>" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete</a>                
+                              </td>
+                            </tr>
+                          <% }) %>
+                        </tbody>
+                      </table>       
+                </div>
+            </div>
+        </div>
+    <%- include('../partials/script') %>
+
+
+
+    <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Uyarı</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+  <form action="/admin/delete/user" method="post">
+      <div class="modal-body">
+        <p class="fw-bold">User ID:<label id="id" class="fw-semibold"></label></p>
+        <p class="fw-bold">User name:<label id="title" class="fw-semibold"></label></p>
+        <p class="fw-bold">Kaydı silmek istediğinize emin misiniz?</p>
+        <input type="hidden" value="" id="userid" name="userid"> <!-- form üzerinde anounce id'yi taşır. anounce Id değeri aşağıdaki scriptte set edilir-->
+      </div>
+      <div class="modal-footer">
+        <a href="#" id="yes" class="btn btn-danger">Linkli Evet</a>
+        <button type="submit" class="btn btn-danger">Post Evet</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hayır</button>
+      </div>
+  </form>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(function () {
+   $(".delete-btn").click(function (){//listedeki click botununa tıklandığında çalışacak jquery kodları
+     let id = $(this).data('id'); //delete butonu üzerinden data-id ve data-title attribute'leri ile bilgiler çekiliyor. 
+     let title = $(this).data('title');
+     $(".modal-body #id").text(id); //modalbox üzerindeki id id'li label'ın text'i set ediliyor
+     $(".modal-body #title").text(title); //modalbox üzerindeki title id'li label'ın text'i set ediliyor
+     $(".modal-footer #yes").attr("href","/admin/delete/user/"+id); //Linkli Evet butonunun href attribute'i set ediliyor
+     $(".modal-body #userid").attr("value",id); //hidden input'un value değeri anouncemnet id'ye set ediliyor.
+   })
+  });
+</script>
+
+    </body>
+</html>
