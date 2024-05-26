@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/head') %>
+    <body>
+        <div class="d-flex" id="wrapper">
+            <%- include('../partials/Sidebar') %>
+            <!-- Page content wrapper-->
+            <div id="page-content-wrapper">
+                <!-- Top navigation-->
+                <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+                    <div class="container-fluid">
+                        <!-- <button class="btn btn-primary" id="sidebarToggle">Toggle Menu</button> -->
+                        <button class="btn btn-primary" id="sidebarToggle">Toggle Menu</button>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                        <%- include('../partials/right-top-menu') %>
+                       
+                    </div>
+                </nav>
+                <!-- Page content-->
+            <div class="container-fluid">
+                    <h1 class="mt-4"><%= contentTitle %></h1>    
+                    <div class="row"> <!--her row 12 col'dır.-->
+                        <div class="col-md-7 mt-3 bg-success pt-4 text-info"><!--3 col solda-->
+                            
+                    <form action="" method="post" name="userform"> 
+                       
+                        <!-- message parametresi her istekte gelmeyebilir. 
+                        çünkü login get ve post olmak üzere iki metod vardır
+                        message bir değişken olduğu için tanımlı olup olmaduğı typeof ile kontrol edilir -->
+                        <% if (typeof(message)!="undefined") { %>
+                            <div class="alert  alert-<%=message.class%> "><%=message.text %></div>
+                        <% } %>
+                        
+                        <div class="row mb-3">
+                            <label for="name" class="col-sm-2 col-form-label">User Name</label>
+                            <div class="col-sm-8">
+                                <input name="name" type="text" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="surname" class="col-sm-2 col-form-label">User Surname</label>
+                            <div class="col-sm-8">
+                                <input name="surname" type="text" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="email" class="col-sm-2 col-form-label">Email</label>
+                            <div class="col-sm-8">
+                                <input name="email" type="email" class="form-control">
+                            </div>
+                        </div>
+        
+                        <div class="row mb-3">
+                            <label for="password" class="col-sm-2 col-form-label">Password</label>
+                            <div class="col-sm-8">
+                                <input name="password" type="password" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="category" class="col-sm-2 col-form-label">Kategori</label>
+                            <div class="col-sm-8">
+                                <select name="category" id="category" class="form-control">
+                                    <%category.forEach(element => { %>
+                                        <option value="<%=element.id %>"> <%=element.categoryname %> </option>
+                                    <% }) %>
+                                  </select>
+                            </div>
+                        </div>
+
+                        
+                       
+                        <div class="row mb-3">
+                            <div class="col-sm-8 offset-sm-2">
+                                <button type="submit" class="btn btn-primary" id="btnkaydet">Kaydet</button>
+                            </div>                 
+                        </div>           
+                    </form>
+                </div>
+            </div>
+            </div>
+            </div>
+           
+        </div>
+    <%- include('../partials/script') %>
+<!-- script dosyasına jquery validate cdn'i ekleyin. -->
+<!-- https://jqueryvalidation.org/required-method/ -->
+<script> 
+  $(document).ready(function() {
+    $("form[name='userform']").validate({ //form ismi önemli
+    rules: {
+        name: "required",
+        surname: "required",
+        email: {
+            required: true,
+            email: true
+        },
+        password: {
+            required: true,
+            minlength: 6
+        }
+    },
+    messages: {
+        name: "Please enter your firstname",
+        surname: "Please enter your lastname",
+        email: {
+            required: "Please enter an email address",
+            email: "Please enter a valid email address"
+        },
+        password: {
+            required: "Please provide a password",
+            minlength: "Your password must be at least 6 characters long"
+        },
+    },
+    submitHandler: function(form) {
+        form.submit();
+    }
+});
+});
+</script>
+    </body>
+</html>
