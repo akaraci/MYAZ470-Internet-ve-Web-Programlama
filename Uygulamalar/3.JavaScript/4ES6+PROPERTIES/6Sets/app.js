@@ -1,4 +1,5 @@
 //set veri tipinde 1 değerden sadece 1 tane olabilir.
+//Key-value (anahtar-değer) yapısı yoktur, sadece değerleri saklar.
 
 mySet=new Set();
 mySet.add(100);

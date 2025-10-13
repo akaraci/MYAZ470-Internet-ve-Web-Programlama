@@ -1,4 +1,4 @@
-// Detsrucing dizi ve nesnelerdeki veriler edaha kolay ve hızlı erişmek için kısa yollar sunar
+// Detsrucing dizi ve nesnelerdeki verilere daha kolay ve hızlı erişmek için kısa yollar sunar
 //Python'dan bu yöntemlere alışkın olabilirsiniz.
 
 arr=[100,200,300,400];
@@ -17,10 +17,10 @@ const blogs={
     age:30
 }
 //const {isim,yas}=blogs; //bu çalışmaz. nesnelerde index'e göre değil key değerine göre aktarım yapar. Bu nedenle nesne içindeki keyler kullanılmalıdır.
-const {name1,age}=blogs;
+const {name1:ad,age:yasi}=blogs;
 
 console.log(blogs);
-console.log(name1,age)
+console.log(ad,yasi)
 
 
 //Kullanılan Nesne Dizisi de olabilir
@@ -31,18 +31,18 @@ const blogs1=[{
 },
 
 {
-    name1:"cccc",
+    named:"cccc",
     surname:"ddddd",
-    age:30
+    aged:30
 }
 ];
 console.log(blogs1);
 const {named,aged}=blogs1[1];
-console.log(name1,age);
+console.log(named,aged);
 
 
 //-------------------------Function Destructive----------------
-const getLangs=()=>["Python","C#","Node.js"];
+const getLangs=()=>["Python","C#","Node.js"]; //arrow function list döndürür.
 const [l1,l2,l3]=getLangs();
 console.log(l1,l2,l3);
 
@@ -53,9 +53,15 @@ const person={
     name:"aaa",
     year:1999,
     salary:5000,
-    showInfos:()=>{console.log("bilgiler gösteriliyor")}
+    // showInfos:()=>{//nesne içinde arrow fuction nesne propertylerine erişemez. Bu nedenle aşağıdaki gibi yazılmlaıdır.
+    //     console.log("Name:",this.name,"Salary:",this.salary); 
+    // }
+
+    showInfos:function (){
+        console.log("Name:",this.name,"Salary:",this.salary); 
+    }
 }
 
-const {name:isim,year:yas,salary:ucret,showInfos:bilgileri_Goster}=person;
+const {name:isim,year:yas,salary:ucret}=person;
 console.log(isim,yas,ucret);
-bilgileri_Goster();
+person.showInfos();

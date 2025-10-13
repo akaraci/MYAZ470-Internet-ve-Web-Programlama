@@ -15,12 +15,12 @@ console.log(langs2);
 
 const numbers=[1,2,3,4,5,6,7];
 const[a,b,...numbers2]=numbers;
-console.log(a,b,numbers2);
+console.log(a,b,numbers2); //a=1, b=2, numbers2=[3,4,5,6,7]
 
 //---------------------------
 
 const addNumbers=(a,b,c)=>{console.log(a+b+c);}
 
-const num=[1,2,3];
-addNumbers(num[0],num[1],num[2]);
-addNumbers(...num);
+const num=[1,2,3,4];
+addNumbers(num[0],num[1],num[2]);//6
+addNumbers(...num); //6

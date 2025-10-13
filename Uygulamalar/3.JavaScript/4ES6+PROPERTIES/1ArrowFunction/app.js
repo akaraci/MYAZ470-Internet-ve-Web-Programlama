@@ -4,20 +4,24 @@ const merhaba=function(){
     console.log("Merhaba");
 }
 
+function merhaba1(){
+    console.log("Merhaba");
+}
+
 //--arrow function
 const merhaba1=()=>{
     console.log("Merhaba1");
 }
 
 
-const merhaba2=(firstname)=>{
-    console.log("Merhaba "+firstname);
-}
+// const merhaba2=(firstname)=>{
+//     console.log("Merhaba "+firstname);
+// }
 
 //tek parametre varsa aşağıdaki gibi parantezler kaldırılabilir.
-// const merhaba2=firstname=>{
-//     console.log("Merhaba"+firstname);
-// }
+const merhaba2=firstname=>{
+    console.log("Merhaba"+firstname);
+}
 
 merhaba();
 merhaba1();

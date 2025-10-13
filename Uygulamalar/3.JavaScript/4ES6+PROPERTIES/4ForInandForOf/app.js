@@ -10,8 +10,8 @@ const langs=["Python","C#","Node.js"];
 
 //------for..in------------------------
 //forin objelerde key değerlerine ulaşmak ve onun üzerinde value'lara ulaşmak için kullanılır
-for (const key in person) {
-    console.log(key,":",person[key]);
+for (const prop in person) {
+    console.log(prop,":",person[prop]);
 }
 
 //forin listelerde index değerlerine ve index değerleri üzerinde item'lara ulaşmak için kullanılır.
@@ -30,11 +30,21 @@ for (const index in ad) {
 //------------for..of index'e gerek kalmadan direkt elemanlar üzerinde gezinmek için kullanılır.
 //--Ancak for..of objeler üzerinde kullanılmaz. sadece dizi ve list üzerinde kullanılır.
 
-for (const value of langs) {
-    console.log(value);
+for (const item of langs) {
+    console.log(item);
 }
 
 for (const caharacter of ad) {
     console.log(caharacter);
 }
 //------------------
+
+///forEach
+langs.forEach((item)=>{
+    console.log(item);
+})
+
+langs.forEach((item,index) => {
+    console.log(index,item);
+})
+
