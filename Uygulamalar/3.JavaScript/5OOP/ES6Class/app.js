@@ -12,6 +12,7 @@ class Person{
 
 p1=new Person("Ahmet",50,5000);
 p1.showInfos();
+// p1.showInfos1();
 console.log(p1);
 
 
