@@ -1,4 +1,5 @@
 console.log(this);
+const counter=document.getElementById("counter")
 //setTimeout belli bir süre bekler ve verilen callback fonksiyonu çalışır.
 setTimeout(()=>{
     console.log("Naber")
@@ -11,6 +12,7 @@ let value;
 function start(){
     value=setInterval(()=>{
     console.log("Sayı-",i);
+    counter.innerHTML=i;
     i+=1;
 },2000);
 }

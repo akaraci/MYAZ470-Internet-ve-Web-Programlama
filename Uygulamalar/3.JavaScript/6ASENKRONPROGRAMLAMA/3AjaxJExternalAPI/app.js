@@ -9,6 +9,7 @@ document.getElementById("change").addEventListener("click",()=>{
     const xhr=new XMLHttpRequest();
     xhr.onload=()=>{ //cevap geldiyse
         if (xhr.status==200){
+            console.log(xhr.responseText);
             const data=JSON.parse(xhr.responseText);
             console.log(data)
             const kur=parseFloat(data.conversion_rates.TRY);

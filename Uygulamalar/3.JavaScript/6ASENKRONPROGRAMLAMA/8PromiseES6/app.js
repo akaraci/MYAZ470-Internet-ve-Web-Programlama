@@ -1,5 +1,5 @@
 //promise kullanımı
-
+const XMLHttpRequest = require('xhr2');
 //promise döndüren fonksiyon
 function getData(url){
     return new Promise((resolve,reject)=>{
@@ -9,9 +9,7 @@ function getData(url){
             }
             else{
                   reject("url string olmalıdır");
-            }
-          
-          
+            }    
         }, 3000);
     });
 }
@@ -22,11 +20,11 @@ function getData(url){
 //resolve ile dönen olumlu sonuç .then ile bir callback function kullanılarak alınabilir.
 //reject ile dönen hata ise .catch ile bir callback function kullanılarak elde edilebilir.
 
-getData("url:aaaa.aaaa.com").then((response)=>{ 
-    console.log(response);
-}).catch((err)=>{
-    console.log(err);
-})
+// getData("url:aaaa.aaaa.com").then((response)=>{ 
+//     console.log(response);
+// }).catch((err)=>{
+//     console.log(err);
+// })
 
 
 //promise ile http requset örneği
@@ -44,7 +42,7 @@ class Employes{
                 resolve(this.xhr.responseText); //başarılı ise resolve
             }
             else{
-                reject(new Error("Bilinmeyen bir hata oluştu")); //başarısız ise reject
+                reject("Bilinmeyen bir hata oluştu"); //başarısız ise reject
             }
         }
         this.xhr.send();
@@ -53,6 +51,6 @@ class Employes{
 }
 
 emp=new Employes();
-emp.get("https://jsonplaceholder.typicode.com/albums/10")
+emp.get("https://jsonplaceholder.typicode.com/albums1/10")
 .then(response=>{console.log(response);}) //başarılı //then den sonra arrow callback function yazdık. Normal function'da yazabiliriz.
 .catch(err=>{console.error(err);});

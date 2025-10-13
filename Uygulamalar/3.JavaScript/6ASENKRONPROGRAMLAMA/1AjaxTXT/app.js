@@ -13,6 +13,8 @@
 // 3: processing request
 // 4: request finished and response is ready
 
+// AJAX (Asynchronous JavaScript and XML), web sayfasının sunucuyla arka planda veri alışverişi yapmasını sağlayan bir tekniktir.
+// Sayfayı yenilemeden (refresh etmeden) veri göndermeye veya almaya yarar.
 
 document.getElementById("btn").addEventListener("click",(e)=>{
     //XMLHTTpRequest
@@ -37,7 +39,9 @@ document.getElementById("btn").addEventListener("click",(e)=>{
     //     }
     // }
     //Get reuquest yapılıyor
-    xhr.open("GET","example.txt",true); //true asenkron, false senkron
+    xhr.open("GET","big.txt",true); //true asenkron, false senkron
     xhr.send();
+    document.getElementById("mesaj").innerHTML="Okuma başladı"; //üstteki komutun asenkron çalıştığını kanıtlar
+    //alert("İşlem başladı");
     console.log("xhr:",xhr);
 })

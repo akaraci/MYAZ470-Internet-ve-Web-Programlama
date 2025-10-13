@@ -100,18 +100,18 @@ class Request{
 
 const request=new Request();
 
-// //----get isteği gönderiliyor---------
-// request.get("https://jsonplaceholder.typicode.com/albums/51",(err,response)=>{
-//     if (err){
-//         console.log(err);
-//     }
-//     else{
-//         console.log(response);
-//     }
-// });
-// //----------------------
+//----get isteği gönderiliyor---------
+request.get("https://jsonplaceholder.typicode.com/albums/1",(err,response)=>{
+    if (err){
+        console.log(err);
+    }
+    else{
+        console.log(response);
+    }
+});
+//----------------------
 
-// //----post isteği gönderiliyor---------
+//----post isteği gönderiliyor---------
 // const data={userId:1,title:"deneme"} //id göndermiyoruz. ilgili restApi sağlayıcıda otomatik oluşturuluyor.
 
 // request.post("https://jsonplaceholder.typicode.com/albums",data,(err,response)=>{
@@ -119,7 +119,9 @@ const request=new Request();
 //         console.log(err);
 //     }
 //     else{
+//         console.log("Post Okey");
 //         console.log(response);
+        
 //     }
 // });
 
@@ -139,12 +141,12 @@ const request=new Request();
 
 
 //----DELETE isteği gönderiliyor---------
-request.delete("https://jsonplaceholder.typicode.com/albums/10",(err,response)=>{
-    if (err){
-        console.log(err);
-    }
-    else{
-        console.log(response);
-    }
-});
+// request.delete("https://jsonplaceholder.typicode.com/albums/10",(err,response)=>{
+//     if (err){
+//         console.log(err);
+//     }
+//     else{
+//         console.log(response);
+//     }
+// });
 //----------------------

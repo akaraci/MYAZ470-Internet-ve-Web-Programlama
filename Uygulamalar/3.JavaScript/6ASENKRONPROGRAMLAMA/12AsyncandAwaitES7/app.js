@@ -36,30 +36,32 @@ test2("Merhaba Promise Async")
 //------------------------------------
 
 //---------------await örnek
+// async fonksiyonlar her zaman bir Promise döndürür.
+// Ancak setTimeout gibi callback tabanlı fonksiyonlar Promise üretmez.
+// setTimeout içindeki dönüş değeri (return data;) fonksiyon dışına iletilmez.
+// Bu yüzden setTimeout içinde resolve(data); kullanarak Promise üretmeliyiz.
 
-async function test3(data){
-
-    let promise=new Promise((resolve,reject)=>{
-        setTimeout(()=>{
-           if(typeof data=="string"){
-            resolve(data);
-           } 
-           else{
-            reject("Bir hata oluştu...");
-           }         
-        },5000);
-    });
-
-    let response=await promise; //cevap gelene kadar yani 5sn bekle. Sonraki satırları çalıştırma
-                                //Bu veri tabanı işlemlerinde çok kullanılmaktadır. Bir table'dan bir veriyi alıp
-                                //buna göre başka table'a yazmak istediğinizde ilk table'dan veri gelene kadar 
-                                //ikinci table'a veriyi yazamazsınız. bu nedenle ilk table'dan veri alma işlemine
-                                //await keyword'ünü eklersiniz. Await sadece async function'larda çalışır.
-    console.log(response);
-    console.log("İşlem Tamam");
-    return response;
+async function awaitOrnek(data){ //promise döndürdüğümüz için async yazmasak da olur.
+ return new Promise((resolve,reject)=>{
+    setTimeout(()=>{if(data!=null){
+        console.log("İşlem Tamam");
+        resolve(data)
+    }
+    else reject("405 Hata");
+}, 1000)
+ });
 }
 
-test3("Merhaba await").then(response=>console.log(response)).catch(err=>console.log(err));
+// awaitOrnek(null).then(response=>console.log(response)).catch(err=>console.log(err));
 
-console.log("promise dışındaki kod çalışmaya devam eder mi?");
+async function getData(data){ //async yazmak zorundayız. Çünkü await sadece async fonksiyonlarda kullanılabilir.
+    try{
+    const result=await awaitOrnek(data);
+    console.log("Result=",result);
+    }
+    catch(err){console.log(err);}
+}
+
+   getData(null); 
+
+console.log("Kod çalışmaya devam eder mi?");
