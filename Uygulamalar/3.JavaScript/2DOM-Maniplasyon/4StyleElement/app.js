@@ -2,8 +2,8 @@ const element=document.querySelector("#clear-todos");
 const element2=document.querySelector(".list-group");
 
 console.log(element.id);
-console.log(element.className);
-console.log(element.classList);
+console.log(element.className); //classları string olarak döndürür
+console.log(element.classList); //classları dizi olarak verir
 console.log(element.classList[0]);
 console.log(element.href);
 
@@ -26,7 +26,7 @@ element.setAttribute("style","background-color:blue;");
 
 element.textContent="Değişti mi?";
 // element.textContent="<span style='color:yellow'><strong>Silin</strong></span>";
-element.innerHTML="<span style='color:yellow'><strong>Silin</strong></span>";
+// element.innerHTML="<span style='color:yellow'><strong>Silin</strong></span>";
 //------------------
 
 const elements=document.querySelectorAll(".list-group-item");

@@ -3,7 +3,9 @@ let element;
 element=document.getElementById("todo-form")
 
 //Aynı class name'e sahip birden fazla element varsa hepsini seçer ve liste döndürür.
-element=document.getElementsByClassName("list-group-item");
+element1=document.getElementsByClassName("list-group-item");
+console.log("class ile arama:",element1);
+
 element=document.getElementsByClassName("card-header")[0];
 
 
@@ -12,7 +14,7 @@ element=document.getElementsByTagName("div");
 
 
 //query selector->Yukarıdaki yöntemlerin tümünü kapsar
-//Ancak birden fazla elenet varsa ilk elementi seçer. Bir değer döndürür
+//Ancak birden fazla element varsa ilk elementi seçer. Bir değer döndürür
 
 element=document.querySelector("#todo-form"); //id
 element=document.querySelector(".card-header"); //class
