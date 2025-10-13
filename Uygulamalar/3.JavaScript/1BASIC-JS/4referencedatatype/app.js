@@ -27,22 +27,22 @@ var bilgi=[
                     kurumadi:"Gazi Lisesi"
                 }     
             ]
-    },
-
-
+    }
 ]
-console.log(bilgi, typeof bilgi);
+console.log(bilgi, "tip=",typeof bilgi);
 console.log("Kurum Kodu:",bilgi[0].kurum[0].kurumkodu);
-console.log(bilgi[1], typeof bilgi.kurum);
+console.log(bilgi[1], typeof bilgi[0].kurum[0]);
+console.log("Dizimi?", Array.isArray(bilgi[0].kurum));
 
 //-------Date
 var date=new Date();
 console.log(date,typeof date);
-console.log("get Date:",date.getDate());//Ayın günü
+console.log("Gün:",date.getDate());//Ayın günü
+console.log("Ay:",date.getMonth()+1);//Ay (0'dan başlar)
 console.log(date.getFullYear());
 
 //----------function
-var yaz=function(){
+const yaz=function(){
     console.log("Hello Function");
 }
 
@@ -50,7 +50,7 @@ yaz();
 console.log(typeof yaz);
 
 //--function lambda kullanımı
-var yazma=()=>{
+const yazma=()=>{
     console.log("mello lambda function");
 }
 

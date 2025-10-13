@@ -9,7 +9,7 @@ console.log(now);
 const date1=new Date("03/25/1990");
 console.log(date1);
 
-value=now.getMonth();//ylın kaçıncı ayı 0'dan başlar.
+value=now.getMonth();//ylın kaçıncı ayı. 0'dan başlar.
 value=now.getDate();//ayın günü
 
 const daynames=["Pazar","Pazartesi","Salı","Çarşamba","Perşembe","Cuma","Cumartesi"]
@@ -24,7 +24,7 @@ value=now.getMilliseconds();
 
 //set of date
 date1.setMonth(4); //mayıs
-date1.setDate(10); 
+date1.setDate(10); //Ayın günü
 date1.setFullYear(2025);
 value=date1;
 

@@ -22,18 +22,17 @@ console.log(b);
 for (var i=1;i<5;i++){
     console.log(i*i);
 }
-
 console.log("for çıkışında i=",i);
 
 
 //--
 const sabit=3.14;
 console.log("sabit=",sabit)
-//sabit=3.1456; hata alırsınız. Yeni değer assign edemezsiniz.
+// sabit=3.1456; //hata alırsınız. Yeni değer assign edemezsiniz.
 
 
 const list=[1,2,3,4,5]
-//list=[2,3,4] //hata yeniden atama yapamazsınız
+// list=[2,3,4] //hata yeniden atama yapamazsınız
 
 //çalışır. çünkü list'e yeni bir değer ataması yapmıyorsunuz.
 //listin gösterdiği adresteki ilk elemanı değiştiriyorsunuz.

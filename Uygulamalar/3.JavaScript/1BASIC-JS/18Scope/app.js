@@ -20,7 +20,7 @@ var value3=20;
 console.log(value1,value2,value3);
 
 function func(){ //function scope
-    var value1=40;
+    let value1=40;
     var value2=50;
     var value3=60;
     console.log(value1,value2,value3);

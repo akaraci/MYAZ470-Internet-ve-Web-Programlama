@@ -5,38 +5,78 @@ for (let i=0;i<langs.length;i++){
 }
        
 console.log("----Tekrar yazdırılıyor");
-for (let lang of langs){
-    console.log(lang);
+for (let item of langs){
+    console.log(item);
 }
 
-console.log("----Tekrar yazdırılıyor");
+console.log("indexler yazdırılıyor");
+for (let i in langs){
+   
+    console.log(parseInt(i)+1,".eleman=",langs[i]);
+}
+console.log("----display for..in for object");
+const person={name:"aaaa",surname:"deneme", age:20}
+for (let prop in person){
+    console.log(prop,person[prop]);
+}
+
+console.log("----for each ile yazdırılıyor");
+langs.forEach((item) => console.log(item));
+
+
 //forEach yazıp enter tuşuna basın. otomatik oluşturur.
-langs.forEach(lang => { //callback function array için
-    console.log(lang);
+//.forEach() → Dizinin her elemanı için bir callback fonksiyon çalıştıran bir JavaScript metodudur.
+langs.forEach((lang,i) => { //array için callback function 
+    console.log(i,". eleman=",lang);
 });
+
+// //İkinci parametre (index), o elemanın dizideki sıra numarasını temsil eder.
 
 console.log("----Tekrar yazdırılıyor");
 langs.forEach((lang,index) => {
     console.log(lang,index);
 });
 
-//--------------------------
+
+
+// //--------------------------
 const users=[
     {name:"aaaa", age:20},
     {name:"bbbb", age:40},
     {name:"cccc", age:15},
     {name:"dddd", age:55},
 ];
+console.log("----for of array for in object")
+for (let obj of users){ //item verir
+    for (let prop in obj){ //objelerde property, arraylerde index verir. for..of nesnelerde çalışmaz. iterable nesnelerle çalışır.
+        
+        console.log(prop,":",obj[prop]);
+    }
+    console.log(obj.name) //bu şekilde de yazılır. Böylece for in ile property'leri gezmeye gerek kalmaz.
+}
 
-//----------------------------------------
-//-----yukarıdaki listeden sadece isimleri alıp bir listeye atmak için
-//------map kullanılabilir.
 
+users.forEach((user,index) => {console.log()
+    console.log(index,"Kullanıcı ismi=",user.name)
+}
+)
+
+// //----------------------------------------
+// //-----yukarıdaki listeden sadece isimleri alıp bir listeye atmak için
+// //------map kullanılabilir.
+console.log("------------Map")
 const names=users.map(function(user){
             return user.name; //users içindeki her bir nesne için name bilgisini return eder.
 });
-
+console.log("names write");
 console.log(names);
+
+
+const names1=users.map((user)=>{
+    return user.name;
+})
+
+console.log("names1:",names);
 
 
 const gencyasli=users.map(function(user){
@@ -48,8 +88,8 @@ const gencyasli=users.map(function(user){
 
 console.log(gencyasli);
 
-//-------------------------------------
-//Nesne içindeki key'lere ve key üzerinden değerlere erişme for in
+// //-------------------------------------
+// //Nesne içindeki key'lere ve key üzerinden değerlere erişme for in
 
 const user={
     name:"Mustafa",

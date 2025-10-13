@@ -1,8 +1,8 @@
 //Function define
 //--------------------------------
 function merhaba(name,age){
-    if (typeof name=="undefined") name="Bilgi yok";
-    if (typeof age=="undefined") age="Bilgi yok"
+    // if (typeof name=="undefined") name="Bilgi yok";
+    // if (typeof age=="undefined") age="Bilgi yok"
     console.log(`İsim:${name}  Yaş:${age}`);
 }
 
@@ -15,8 +15,17 @@ merhaba("aaaa",20);
 const kare=(value)=>{ //function(value) {} //şeklinde de yazabilirsiniz. 
     return value*value;
 }
-
 console.log("kare=",kare(12));
+
+const kare1=function(value){ //function(value) {} //şeklinde de yazabilirsiniz. 
+    return value*value;
+}
+console.log("kare1=",kare1(12));
+
+
+((value)=>{ //function(value) {} //şeklinde de yazabilirsiniz. 
+    console.log("IIFE:",value*value);
+})(10);
 
 //---------------------------------------
 //Immediately Invoked Function Expression (IIFE)-Tanımlandığı yerde çalışan fonksiyon
@@ -29,6 +38,7 @@ console.log("kare=",kare(12));
 
 //console.log(a);  //hata verir
 
+//Immediately Invoked Function Expression arrow function şeklinde de olur olur.
 ((sayi)=>{
     console.log(sayi*sayi);
 })(20);
@@ -39,11 +49,13 @@ const database={
     host:"localhost",
     add:(deger)=>{
         console.log(deger," eklendi");
+        console.log("arrow in prop",this.host);
     },
     get:function(){
         console.log("Veriler alındı");
+        console.log("prop in normal function",this.host);
     },
-    update:(id)=>{
+    update:id=>{
         console.log(`id:${id} güncellendi`);
     }
 }

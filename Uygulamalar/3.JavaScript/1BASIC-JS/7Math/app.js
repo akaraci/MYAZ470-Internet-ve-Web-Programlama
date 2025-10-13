@@ -16,6 +16,7 @@ value=Math.min(2,3,500,7);
 
 
 value=Math.random(); //0-1 arası rastgele sayı üretir
+console.log(value);
 value=Math.random()*20; //0-20 arası rastgele sayı üretir
 value=Math.random()*20+1; //1-21 arası rastgele sayı üretir
 value=Math.floor(Math.random()*20); //0-20 arası rastgele tamsayı sayı üretir

@@ -14,7 +14,7 @@
 //Kullanabilmek için iki yol vardır:
     // package.json içine "type": "module" eklemek
     // Dosya uzantısını .mjs yapmak 
-const programmer={
+export const programmer={ //dosya uzantısını mjs yaparsanız bu şekilde export edilebilir.
     name:"Mustafa Karacı",
     age:30,
     email:"mk@aa.com",
@@ -38,7 +38,7 @@ programmer.work();
 
 
 //object array oluşturma
-const backend_developer=[ //list or array
+export const backend_developer=[ //list or array
     {name:"aaaaa", age:25}, //object
     {name:"bbbbb", age:30} //object
 ];
@@ -46,4 +46,4 @@ const backend_developer=[ //list or array
 value=backend_developer[0].name;
 console.log(value);
 
-module.exports={programmer,backend_developer}; //dosya uzantısını .js yaparsanız bu şekilde export edebilirsiniz.
+// module.exports={programmer,backend_developer}; //dosya uzantısını .js yaparsanız bu şekilde export edebilirsiniz.
